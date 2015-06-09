@@ -1,31 +1,34 @@
 {
-  "name": "impact-fork",
+  "name": "jdm-node-impact",
   "description": "nodejs backend for impactjs (http://impactjs.com)",
   "author": "Conner Petzold <cpetzold@gmail.com>",
   "contributors": [
     {
       "name": "Christopher McCulloh",
       "email": "cmcculloh@gmail.com"
+    },
+    {
+      "name": "Justin Myers",
+      "email": "justin@justindmyers.com"
     }
   ],
-  "version": "0.2.2",
+  "version": "0.1",
   "main": "./lib",
-  "scripts":{
-    "start":"node ./game/server.js"
+  "scripts": {
+    "start": "node ./game/server.js"
   },
   "keywords": [
     "impactjs",
     "impact",
     "game"
   ],
-  "repository":{
+  "repository": {
     "type": "git",
-    "url": "https://github.com/cmcculloh/node-impact"
+    "url": "https://github.com/justindmyers/node-impact"
   },
   "dependencies": {
     "express": ">= 2.0.0",
-    "glob": ">= 2.0.9",
-    "jade": ">= 0.27.2"
+    "glob": ">= 2.0.9"
   },
   "engines": {
     "node": ">= 0.4",

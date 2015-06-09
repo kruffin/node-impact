@@ -1,23 +1,35 @@
 var express = require('express'),
-    impact = require('impact-fork');
+    path = require('path'),
+    impact = require('../lib'),
     port = 8080,
     app = express();
 
-app.configure(function(){
-  app.set('views', __dirname + '/views');
-  app.use(express.methodOverride());
-  app.use(express.bodyParser());
-  app.use(app.router);
+//Paths for Weltmesiter API
+app.get('/lib/weltmeister/api/glob.php', function(req, res){
+    res.redirect('/wm/glob');
 });
+    
+app.get('/lib/weltmeister/api/browse.php', function(req, res){
+    res.redirect('/wm/browse');
+});
+    
+app.get('/lib/weltmeister/api/save.php', function(req, res){
+    res.redirect('/wm/save');
+});
+
+//Normal routing for ImpactJS
+app.use('/lib', express.static('impact_core/lib'));
+app.use('/media', express.static('impact_core/media'));
 
 app.get('/', function(req, res){
-  res.render('index.jade', {
-    locals: { title: 'Example node-impact server' }
-  });
+  res.sendFile(path.join(__dirname + '/views/index.html'));
 });
 
-var im = impact.listen(app, { root: __dirname + '/public' });
-app.use(express.static(im.root));
+app.get('/wm', function(req, res){
+  res.sendFile(path.join(__dirname + '/views/weltmeister.html'));
+});
+
+var im = impact.listen(app, { root: __dirname + '/impact_core' });
 
 app.listen(port);
 

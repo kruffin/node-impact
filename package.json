@@ -12,7 +12,7 @@
       "email": "justin@justindmyers.com"
     }
   ],
-  "version": "0.1",
+  "version": "0.1.0",
   "main": "./lib",
   "scripts": {
     "start": "node ./game/server.js"
